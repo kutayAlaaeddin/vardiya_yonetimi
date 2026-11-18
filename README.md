@@ -151,21 +151,3 @@ Toplam **1.201 açık**, **2.609 tam sınırdaki ihtiyaç** ve **%92,6 karşıla
 
 Veriler Power Query bölümlerine sıkıştırılmış olarak gömülüdür. Veri kaynağı için dosya yolu ayarlamak gerekmez. Aynı kayıtların CSV kopyaları veri klasöründedir. CSV değişiklikleri gömülü kaynağa otomatik yansımaz.
 
-## Dosya yapısı
-
-```text
-Vardiya.pbip
-Vardiya.Report/          Rapor sayfaları, görseller ve tema
-Vardiya.SemanticModel/   TMDL model, ilişkiler ve DAX ölçüleri
-veri/                   Sentetik verilerin CSV kopyaları
-uret.mjs                Tekrarlanabilir veri ve proje üretimi
-bicim.mjs               Tema, panel ve sayfa navigasyonu
-profil.mjs              Fotoğraf ve iletişim alanı
-README.md
-```
-
-Üretim betikleri Node.js ile çalışır. Proje klasöründe aşağıdaki komut sentetik veriyi yeniden üretir ve mevcut TMDL tablolarındaki gömülü veriyi günceller.
-
-```bash
-node uret.mjs --data-only
-```
