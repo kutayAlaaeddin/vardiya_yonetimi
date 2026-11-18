@@ -169,11 +169,3 @@ README.md
 ```bash
 node uret.mjs --data-only
 ```
-
-Tam proje üretimi için `node uret.mjs` kullanılabilir. Bu işlem rapor ve model tanımlarını yeniden yazar. Betik, aynı üst klasördeki `01 Kurum-Analitigi-Portfoy` projesinden dosya sürümlerini ve Fluent temasını alır. Mevcut raporu açmak için betikleri çalıştırmak gerekmez.
-
-## Geliştirici
-
-**Kutay Alaaddin**  
-Data & BI Analyst  
-[k.alaaeddin@outlook.com](mailto:k.alaaeddin@outlook.com)
