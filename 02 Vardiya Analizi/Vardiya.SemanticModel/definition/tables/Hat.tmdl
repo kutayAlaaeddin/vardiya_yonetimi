@@ -1,0 +1,37 @@
+table Hat
+	lineageTag: 41ad5a99-d617-4222-803b-d16820c244e0
+
+	column HatID
+		dataType: int64
+		isHidden
+		lineageTag: c64089c1-c0f7-42bf-979c-cbcb98f468e2
+		summarizeBy: none
+		sourceColumn: HatID
+
+	column Tesis
+		dataType: string
+		lineageTag: d14e8e84-ead2-4f50-9583-8d075292902a
+		summarizeBy: none
+		sourceColumn: Tesis
+
+	column Alan
+		dataType: string
+		lineageTag: e3d105e2-a52c-4241-aa15-d0d38b8f3809
+		summarizeBy: none
+		sourceColumn: Alan
+
+	column Hat
+		dataType: string
+		lineageTag: 02f3da8f-efe9-41fa-b52b-0d117b231eef
+		summarizeBy: none
+		sourceColumn: Hat
+
+	partition Hat = m
+		mode: import
+		source =
+				let
+				    Csv = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({"H4sIAAAAAAAACpXUT0oDMRQG8H0gd+gRJu9l/pGVolApgqAXCDLg2NrCTF30NL2COxcuBLHn8QryOjF92ZjXXV/zC1/INzM/H59zv725cg/d2I/uYuXXbu63Whl3+TqM3t0N3Tj9nH29z2iaFUYr+GcZtMJ/llErG5YXfrf2yxOY5mNAmSGgVZUhqFUdyPfbYb/qXroT+vvnGNYIGGjVChhqZYrgbjfrrX8+qWk+JhqTMaCVgYyhLHSLzaPvVv1012FIujI2YyirzBjKqqIJV84Uq87UAkeZjcBRbhtdvHkmkyahEFrQCozQolYA0YY2mGS9AgocZVuBo9zS3fulH3bhXQpD+i5WGUN5dcZQVhNN6IMp1i+0AkcfgULgUCs00cUemEz6RRBaykehpTPYaEMfTLJ+sRQ4yq4EjnJrdz0u+8O+e+qHqZrTnLSMjUhSdiuS9B0uuAwlpZb1bo1Yg1YWxJpOglzHulKfPAnWnrWDTlSetYNOVfEdocjUs2fD1mJNp2nEGn8BV83QJqYHAAA="}), BinaryEncoding.Base64), Compression.GZip), [Delimiter=";", Encoding=65001]),
+				    Headers = Table.PromoteHeaders(Csv),
+				    Typed = Table.TransformColumnTypes(Headers, {{"HatID", Int64.Type}, {"Tesis", type text}, {"Alan", type text}, {"Hat", type text}}, "en-US")
+				in Typed
+

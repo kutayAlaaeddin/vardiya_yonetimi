@@ -1,0 +1,25 @@
+table Yetkinlik
+	lineageTag: ab4fc772-1e59-4b90-97c6-5d0e5745af05
+
+	column YetkiID
+		dataType: int64
+		isHidden
+		lineageTag: 66c11bc1-2e33-4585-aed2-566d527919b6
+		summarizeBy: none
+		sourceColumn: YetkiID
+
+	column Yetkinlik
+		dataType: string
+		lineageTag: f0f0a6b6-ba3a-4619-b753-06a5d9d0ea92
+		summarizeBy: none
+		sourceColumn: Yetkinlik
+
+	partition Yetkinlik = m
+		mode: import
+		source =
+				let
+				    Csv = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({"H4sIAAAAAAAACj2MPU7DQBBGe0u+wxwhAcKPpgwFKAIhREP5WR6kze56o/GA5IvQukyLayJR7HIeroCSwtVr3nt/3z+vYt7d3/KJXXC+rpa8QSjTjlopo/sdzWmUujrjJ5WeMEDLVFfn/JyaZNTKh8oghBBRVxe8wdDB0w6KKKZCqcNwDFa8flyTwZcpzpdLLl/hZOc9ZvWKX5J6alMZ9T3gOL7mh9QZtvTmfG/5oPPihvNnyPt8iHO/XPAdjHrRRnqjpkwKH/EPtb/B2+8AAAA="}), BinaryEncoding.Base64), Compression.GZip), [Delimiter=";", Encoding=65001]),
+				    Headers = Table.PromoteHeaders(Csv),
+				    Typed = Table.TransformColumnTypes(Headers, {{"YetkiID", Int64.Type}, {"Yetkinlik", type text}}, "en-US")
+				in Typed
+

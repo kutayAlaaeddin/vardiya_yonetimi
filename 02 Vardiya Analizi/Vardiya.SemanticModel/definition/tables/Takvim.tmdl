@@ -1,0 +1,34 @@
+table Takvim
+	lineageTag: dfe70b8a-3f7b-43a5-9084-551c06215bd7
+
+	column GunID
+		dataType: int64
+		isHidden
+		lineageTag: b83de1b9-aacb-4187-8e61-e6a84f49910b
+		summarizeBy: none
+		sourceColumn: GunID
+
+	column Tarih
+		dataType: dateTime
+		formatString: dd.MM.yyyy
+		lineageTag: 0d20f876-d728-47d5-8357-8dbc7f85647a
+		summarizeBy: none
+		sourceColumn: Tarih
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Hafta
+		dataType: string
+		lineageTag: 588c3c4c-5008-4f2b-a472-017be85f69a1
+		summarizeBy: none
+		sourceColumn: Hafta
+
+	partition Takvim = m
+		mode: import
+		source =
+				let
+				    Csv = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({"H4sIAAAAAAAACk3Puw3CQBRE0Xyl7YEGLO2M1z85RQJyGnCCICFAUB0BJdECAZj70pOd9/O1e1wP2/m43C7neb+c7ktOml3cN1JT/LWNcjLaoi1a0Yp2aIf2aI8O6ICO6IhOP3VO019VUBVYgdnJgempDcxPNTBBdYEZah22OYmihsAcNQYmqSkwSxfYLK3ALO3ALL0ua05m6RqYpbvALN0HZukhMEuPgVl6XdYPDtNp6Y8CAAA="}), BinaryEncoding.Base64), Compression.GZip), [Delimiter=";", Encoding=65001]),
+				    Headers = Table.PromoteHeaders(Csv),
+				    Typed = Table.TransformColumnTypes(Headers, {{"GunID", Int64.Type}, {"Tarih", type date}, {"Hafta", type text}}, "en-US")
+				in Typed
+

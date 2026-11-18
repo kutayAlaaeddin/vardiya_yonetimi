@@ -1,0 +1,25 @@
+table Vardiya
+	lineageTag: e73abfcc-68b4-4bf0-9153-f6e80657de67
+
+	column VardiyaID
+		dataType: int64
+		isHidden
+		lineageTag: d1143965-370c-49c8-b1d9-603284855c61
+		summarizeBy: none
+		sourceColumn: VardiyaID
+
+	column Dilim
+		dataType: string
+		lineageTag: 749a9d50-082a-4f03-9211-ace41c7523d8
+		summarizeBy: none
+		sourceColumn: Dilim
+
+	partition Vardiya = m
+		mode: import
+		source =
+				let
+				    Csv = Csv.Document(Binary.Decompress(Binary.FromText(Text.Combine({"H4sIAAAAAAAACnu/e39YYlFKZmWip4u1S2ZOZi4vl6G1gdmjhsmGJgrBiUmJGbxcRtaGJo8aJhsZKThmH52fmMvLZWxtZPSoYbKBmYJ7anIqAO05ho5FAAAA"}), BinaryEncoding.Base64), Compression.GZip), [Delimiter=";", Encoding=65001]),
+				    Headers = Table.PromoteHeaders(Csv),
+				    Typed = Table.TransformColumnTypes(Headers, {{"VardiyaID", Int64.Type}, {"Dilim", type text}}, "en-US")
+				in Typed
+

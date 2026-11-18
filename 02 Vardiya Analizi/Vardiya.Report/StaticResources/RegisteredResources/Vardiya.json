@@ -1,0 +1,12 @@
+{
+  "name": "Vardiya",
+  "dataColors": [
+    "#356C83",
+    "#92AAB8",
+    "#557F91",
+    "#B9CBD4"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#233F50",
+  "tableAccent": "#356C83"
+}

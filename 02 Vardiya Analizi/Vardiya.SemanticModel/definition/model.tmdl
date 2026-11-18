@@ -1,0 +1,26 @@
+model Model
+	culture: tr-TR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: tr-TR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Takvim","Hat","Vardiya","Yetkinlik","Calisan","IzinSecimi","Plan","Belge","Kapsama","Katki"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Takvim
+ref table Hat
+ref table Vardiya
+ref table Yetkinlik
+ref table Calisan
+ref table IzinSecimi
+ref table Plan
+ref table Belge
+ref table Kapsama
+ref table Katki
+

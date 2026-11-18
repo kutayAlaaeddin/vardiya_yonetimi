@@ -1,0 +1,60 @@
+relationship Plan_GunID
+	fromColumn: Plan.GunID
+	toColumn: Takvim.GunID
+
+relationship Plan_HatID
+	fromColumn: Plan.HatID
+	toColumn: Hat.HatID
+
+relationship Plan_VardiyaID
+	fromColumn: Plan.VardiyaID
+	toColumn: Vardiya.VardiyaID
+
+relationship Plan_KisiID
+	fromColumn: Plan.KisiID
+	toColumn: Calisan.KisiID
+
+relationship Belge_KisiID
+	fromColumn: Belge.KisiID
+	toColumn: Calisan.KisiID
+
+relationship Belge_YetkiID
+	fromColumn: Belge.YetkiID
+	toColumn: Yetkinlik.YetkiID
+
+relationship Kapsama_GunID
+	fromColumn: Kapsama.GunID
+	toColumn: Takvim.GunID
+
+relationship Kapsama_HatID
+	fromColumn: Kapsama.HatID
+	toColumn: Hat.HatID
+
+relationship Kapsama_VardiyaID
+	fromColumn: Kapsama.VardiyaID
+	toColumn: Vardiya.VardiyaID
+
+relationship Kapsama_YetkiID
+	fromColumn: Kapsama.YetkiID
+	toColumn: Yetkinlik.YetkiID
+
+relationship Katki_GunID
+	fromColumn: Katki.GunID
+	toColumn: Takvim.GunID
+
+relationship Katki_HatID
+	fromColumn: Katki.HatID
+	toColumn: Hat.HatID
+
+relationship Katki_VardiyaID
+	fromColumn: Katki.VardiyaID
+	toColumn: Vardiya.VardiyaID
+
+relationship Katki_YetkiID
+	fromColumn: Katki.YetkiID
+	toColumn: Yetkinlik.YetkiID
+
+relationship Katki_KisiID
+	fromColumn: Katki.KisiID
+	toColumn: Calisan.KisiID
+
